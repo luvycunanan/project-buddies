@@ -7,5 +7,15 @@ Content-Type: application/json
 
 {
   "name": "nono",
-  "password": "password123123"
+  "password": "password"
+}
+
+###
+
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "name": "nono",
+  "password": "password"
 }

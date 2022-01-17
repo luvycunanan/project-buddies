@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
 
-const user = []
+const users = []
 
 router.get('/users', (req, res) => {
-  res.json(user)
+  res.json(users)
 })
 
 router.post('/users', async (req, res) => {
@@ -18,8 +18,27 @@ router.post('/users', async (req, res) => {
       name: req.body.name,
       password: saltedHashedPassword
     }
-    user.push(newUser)
+    users.push(newUser)
     res.status(201).send()
+  }
+  catch {
+    res.status(500).send()
+  }
+})
+
+router.post('/users/login', async (req, res) => {
+  const user = users.find(user => user.name = req.body.name)
+  
+  if (!user) {
+    return res.status(400).send('User not found.')
+  }
+
+  try {
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      res.send("Login successful.")
+    } else {
+      res.send("Invalid password.")
+    }
   }
   catch {
     res.status(500).send()
