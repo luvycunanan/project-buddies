@@ -1,0 +1,43 @@
+* {
+  margin: 0 0 0 0;
+  width: 100%;
+  height: 100%;
+}
+
+.loginDiv {
+  position: relative;
+  display: flex;
+  float: right;
+  flex-direction: column;
+  margin: 15px 15px 0 0;
+  width: 30vw;
+  height: 50vh;
+
+  border: 2px solid black;
+}
+
+.inputsContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  position: relative;
+  width: 50%;
+  height: 10%;
+  margin: auto;
+}
+
+.buttonsContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  position: relative;
+  width: 30%;
+  height: auto;
+  margin: 5px;
+}
